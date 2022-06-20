@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="ResumeService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="IntroSet" EntityType="ResumeService.IntroSet"/>
+            </EntityContainer>
+            <EntityType Name="IntroSet">
+                <Key>
+                    <PropertyRef Name="empName"/>
+                </Key>
+                <Property Name="empName" Type="Edm.String" MaxLength="50" Nullable="false"/>
+                <Property Name="empImage" Type="Edm.Stream"/>
+                <Property Name="mobile" Type="Edm.String" MaxLength="13"/>
+                <Property Name="email" Type="Edm.String" MaxLength="20"/>
+                <Property Name="designation" Type="Edm.String" MaxLength="20"/>
+                <Property Name="skills" Type="Edm.String" MaxLength="100"/>
+                <Property Name="status" Type="Edm.String" MaxLength="15"/>
+                <Property Name="location" Type="Edm.String" MaxLength="25"/>
+                <Property Name="linkedInURL" Type="Edm.String" MaxLength="200"/>
+            </EntityType>
+            <Annotations Target="ResumeService.IntroSet/empImage">
+                <Annotation Term="Core.MediaType" String="image/png"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

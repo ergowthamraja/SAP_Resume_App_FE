@@ -1,0 +1,67 @@
+{
+  "name": "SAP_Resume_App",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^5",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.8.20",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@sap/eslint-plugin-ui5-jsdocs": "^2.0.5",
+    "@sap/ux-specification": "^1.100.4",
+    "@sapui5/ts-types": "^1.92.2",
+    "eslint": "^7.32.0",
+    "sqlite3": "^5.0.2"
+  },
+  "scripts": {
+    "start": "cds run",
+    "watch-sap_resume": "cds watch --open sap_resume/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-sap_resume_app": "cds watch --open sap_resume_app/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-sap.resume": "cds watch --open sap.resume/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy SAP_Resume_App --delete-services --delete-service-keys"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es2020": true,
+      "node": true,
+      "jest": true,
+      "mocha": true
+    },
+    "globals": {
+      "SELECT": true,
+      "INSERT": true,
+      "UPDATE": true,
+      "DELETE": true,
+      "CREATE": true,
+      "DROP": true,
+      "CDL": true,
+      "CQL": true,
+      "CXL": true,
+      "cds": true
+    },
+    "rules": {
+      "no-console": "off",
+      "require-atomic-updates": "off"
+    }
+  },
+  "sapux": [
+    "app/sap_resume",
+    "app/sap_resume_app",
+    "app/sap.resume"
+  ],
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "gowtham.db"
+        }
+      }
+    }
+  }
+}
